@@ -1,6 +1,6 @@
 'use client'
 
-import { useCurrentUser } from "@/app/auth/hooks/use-current-user";
+import { useCurrentUser } from "@/app/auth/api/use-current-user";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DropdownMenu, DropdownMenuItem, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useAuthActions } from "@convex-dev/auth/react";
