@@ -14,7 +14,7 @@ interface workspaceHeaderProps {
 export const WorkspaceHeader = ({ workspace, isAdmin }: workspaceHeaderProps) => {
     const[preferencesOpen, setPreferencesOpen] = useState(false);
 
-    return (
+    return(
         <>
             <PreferencesModal open={preferencesOpen} setOpen={setPreferencesOpen} initialValue={workspace.name} />
             <div className="flex items-center justify-between px-4 gap-0.5 h-[49px]">
