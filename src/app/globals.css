@@ -111,6 +111,10 @@ body,
   padding: 0 !important;
 }
 
+.ql-editor:focus{
+  background-color: #fff !important;
+}
+
 .ql-editor:before {
   left: 12px !important;
   color: #8d8d8d !important;
