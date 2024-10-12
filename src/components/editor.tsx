@@ -64,8 +64,6 @@ const Editor = ({
         );
 
         const options: QuillOptions = {
-            theme: "snow",
-            placeholder: placeholderRef.current,
             modules: {
                 toolbar: [
                     ["bold", "italic", "strike"],
@@ -75,7 +73,7 @@ const Editor = ({
                 keyboard: {
                     bindings: {
                         enter: {
-                            key: "Enter",
+                            key: 'Enter',
                             handler: () => {
                                 const text = quill.getText();
                                 const addedImage = imageElementRef.current?.files?.[0] || null;
@@ -86,18 +84,20 @@ const Editor = ({
 
                                 const body = JSON.stringify(quill.getContents());
                                 submitRef.current?.({ body, image: addedImage });
-                            }
+                            },
                         },
                         shift_enter: {
-                            key: "Enter",
+                            key: 'Enter',
                             shiftKey: true,
                             handler: () => {
                                 quill.insertText(quill.getSelection()?.index || 0, "\n")
-                            }
-                        }
-                    }
-                }
-            }
+                            },
+                        },
+                    },
+                },
+            },
+            placeholder: placeholderRef.current,
+            theme: 'snow',
         };
 
         const quill = new Quill(editorContainer, options);
