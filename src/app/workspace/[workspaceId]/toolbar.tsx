@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button"
 import { useGetWorkspace } from "@/features/workspaces/api/use-get-workspace"
 import { useWorkspaceId } from "@/hooks/use-workspace-id"
-import { Info, Search } from "lucide-react"
+import { Code2Icon, Github, Info, Search } from "lucide-react"
+import Link from "next/link"
 
 export const Toolbar = () => {
     const workspaceId = useWorkspaceId()
@@ -18,7 +19,9 @@ export const Toolbar = () => {
             </div>
             <div className="ml-auto flex-1 flex items-center justify-end">
                 <Button variant="transparent" size="iconSm">
-                    <Info className="size-5 text-white" />
+                    <Link href="https://github.com/dev-sire/CommLink">
+                        <Code2Icon className="size-5 text-white" />
+                    </Link>
                 </Button>
             </div>
         </div>

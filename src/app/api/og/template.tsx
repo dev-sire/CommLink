@@ -3,13 +3,12 @@ interface TemplateProps { title: string; }
 
 export function Template({ title }: TemplateProps) {
   return (
-    <div
-      style={{
-        background: '#f8fafc',  color: '#334155',
-        width: '100%', height: '100%',
-        display: 'flex',  alignItems: 'center', 
-        justifyContent: 'center', padding: "24px",
-      }}>
+    <div style={{
+      background: '#f8f8f8',  color: '#334155',
+      width: '100%', height: '100%',
+      display: 'flex',  alignItems: 'center', 
+      justifyContent: 'center', padding: '24px',
+    }}>
       <div style={{
         margin: '6px', padding: "24px", width: "100%",
         borderRadius: "24px", height: "100%", fontSize: 72, 
