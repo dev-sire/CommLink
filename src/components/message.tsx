@@ -13,6 +13,7 @@ import { useConfirm } from "@/hooks/use-confirm";
 import { useToggleReaction } from "@/features/reactions/api/use-toggle-reaction";
 import { Reactions } from "./reactions";
 import { usePanel } from "@/hooks/use-panel";
+import { ThreadBar } from "./thread-bar";
 const Renderer = dynamic(() => import("@/components/renderer"), {ssr: false});
 const Editor = dynamic(() => import("@/components/editor"), { ssr: false });
 
@@ -67,7 +68,7 @@ export const Message = ({
     threadTimestamp,
 }: MessageProps) => {
 
-    const { parentMessageId, onOpenMessage, onClose } = usePanel()
+    const { parentMessageId, onOpenMessage, onOpenProfile, onClose } = usePanel()
     const [ConfirmDialog, confirm] = useConfirm(
         "Delete this message?", 
         "Are you sure you want to delete this message? This cannot be undone."
@@ -146,6 +147,7 @@ export const Message = ({
                                 <Thumbnail url={image} />
                                 {updatedAt ? (<span className="text-xs text-muted-foreground">(edited)</span>) : null}
                                 <Reactions data={reactions} onChange={handleReaction} />
+                                <ThreadBar count={threadCount} image={threadImage} name={threadName} timestamp={threadTimestamp} onClick={() => onOpenMessage(id)} />
                             </div>
                         )}
                     </div>
@@ -175,7 +177,7 @@ export const Message = ({
                 isRemovingMessage && "bg-rose-500/50 transform transition-all scale-y-0 origin-bottom duration-200"
             )}>
                 <div className="flex items-start gap-2">
-                    <button>
+                    <button onClick={() => onOpenProfile(memberId)}>
                         <Avatar>
                             <AvatarImage src={authorImage} />
                             <AvatarFallback className="bg-sky-500 text-white text-sm">{avatarFallback}</AvatarFallback>
@@ -194,7 +196,7 @@ export const Message = ({
                     ): (
                         <div className="flex flex-col w-full overflow-hidden">
                             <div className="text-sm">
-                                <button onClick={() => {}} className="font-bold text-primary hover:underline">
+                                <button onClick={() => onOpenProfile(memberId)} className="font-bold text-primary hover:underline">
                                     {authorName}
                                 </button>
                                 <span>&nbsp;&nbsp;</span>
@@ -208,6 +210,7 @@ export const Message = ({
                             <Thumbnail url={image} />
                             {updatedAt ? (<span className="text-xs text-muted-foreground">(edited)</span>): null}
                             <Reactions data={reactions} onChange={handleReaction} />
+                            <ThreadBar count={threadCount} image={threadImage} name={threadName} timestamp={threadTimestamp} onClick={() => onOpenMessage(id)} />
                         </div>
                     )}
                 </div>
