@@ -22,7 +22,7 @@ export const useGenerateUploadUrl = () => {
     const isSettled = useMemo(() => status === "settled", [status]);
 
     const mutation = useMutation(api.upload.generateImageURL);
-    const mutate = useCallback(async (_values: {}, options?: Options) => {
+    const mutate = useCallback(async (_values: any, options?: Options) => {
 
         try{
             setData(null)
