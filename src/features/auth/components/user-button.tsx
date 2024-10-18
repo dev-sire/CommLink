@@ -5,8 +5,10 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DropdownMenu, DropdownMenuItem, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useAuthActions } from "@convex-dev/auth/react";
 import { Loader, LogOut } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export const UserButton = () => {
+    const router = useRouter();
     const { data, isLoading } = useCurrentUser()
     const { signOut } = useAuthActions()
 
@@ -32,7 +34,13 @@ export const UserButton = () => {
                 </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="center" side="right" className="w-60">
-                <DropdownMenuItem onClick={() => signOut()} className="h-10">
+                <DropdownMenuItem 
+                    onClick={async () => {
+                        await signOut();
+                        router.replace('/');
+                    }} 
+                    className="h-10"
+                >
                     <LogOut className="size-4 mr-2" />
                     Log out
                 </DropdownMenuItem>

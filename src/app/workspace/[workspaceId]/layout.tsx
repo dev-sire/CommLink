@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
 import { Sidebar } from "./sidebar";
@@ -9,12 +9,14 @@ import { Loader } from "lucide-react";
 import { Id } from "../../../../convex/_generated/dataModel";
 import { Thread } from "@/features/messages/components/threads";
 import { Profile } from "@/features/members/components/profile";
+import { useMediaQuery } from 'usehooks-ts';
 
 interface WorkspaceIdLayoutProps {
     children: React.ReactNode;
 }
 
 const WorkspaceIdLayout = ({ children }: WorkspaceIdLayoutProps) => {
+    const isMobile = useMediaQuery("(max-width: 768px)");
     const { parentMessageId, profileMemberId, onClose } = usePanel();
     const showPanel = !!parentMessageId || !!profileMemberId;
 
@@ -24,17 +26,17 @@ const WorkspaceIdLayout = ({ children }: WorkspaceIdLayoutProps) => {
             <div className="flex h-[calc(100vh-40px)]">
                 <Sidebar />
                 <ResizablePanelGroup direction="horizontal" autoSaveId="devsire-id">
-                    <ResizablePanel defaultSize={20} minSize={11} className="bg-[#5E2C5F]">
+                    <ResizablePanel defaultSize={20} minSize={isMobile ? 0 : 11} className="bg-[#5E2C5F]">
                         <WorkspaceSidebar />
                     </ResizablePanel>
                     <ResizableHandle withHandle />
-                    <ResizablePanel minSize={20}>
+                    <ResizablePanel minSize={isMobile ? 0 : 20} defaultSize={80}>
                         {children}
                     </ResizablePanel>
                     {showPanel && (
                         <>
                             <ResizableHandle withHandle />
-                            <ResizablePanel minSize={20} defaultSize={29}>
+                            <ResizablePanel minSize={isMobile ? 0 : 20} defaultSize={29}>
                                 {parentMessageId ? (
                                     <Thread
                                         messageId={parentMessageId as Id<"messages">}
