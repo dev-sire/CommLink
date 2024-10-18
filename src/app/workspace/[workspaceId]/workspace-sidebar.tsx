@@ -1,3 +1,5 @@
+'use client'
+
 import { useCurrentMembers } from "@/features/members/api/use-current-members";
 import { useGetWorkspace } from "@/features/workspaces/api/use-get-workspace";
 import { useWorkspaceId } from "@/hooks/use-workspace-id";
@@ -23,7 +25,7 @@ export const WorkspaceSidebar = () => {
     const { data: channels, isLoading: channelsLoading } = useGetChannels({ workspaceId });
     const { data: members, isLoading: membersLoading } = useGetMembers({ workspaceId });
 
-    if(workspaceLoading || memberLoading){
+    if(workspaceLoading || memberLoading || channelsLoading || membersLoading){
         return(
             <div className="flex flex-col bg-[#5E2C5F] h-full items-center justify-center">
                 <Loader className="size-5 animate-spin text-white" />

@@ -1,6 +1,5 @@
 import { ImageResponse } from "next/og";
 import { NextRequest } from 'next/server';
-import { FaDev } from "react-icons/fa";
 
 export const runtime = 'edge'// Image generation
 

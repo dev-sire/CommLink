@@ -13,7 +13,7 @@ const MemberIdPage = () => {
     const workspaceId = useWorkspaceId();
     const memberId = useMemberId();
     const [conversationId, setConversationId] = useState<Id<"conversations"> | null>(null)
-    const { data, mutate, isPending } = useCreateOrGetConversations();
+    const { mutate, isPending } = useCreateOrGetConversations();
 
     useEffect(() => {
         mutate({
