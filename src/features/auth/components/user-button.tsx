@@ -35,9 +35,9 @@ export const UserButton = () => {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="center" side="right" className="w-60">
                 <DropdownMenuItem 
-                    onClick={async () => {
-                        await signOut();
-                        router.replace('/');
+                    onClick={() => {
+                        signOut();
+                        router.push('/');
                     }} 
                     className="h-10"
                 >

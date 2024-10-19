@@ -3,15 +3,19 @@ import { NextRequest } from 'next/server';
 
 export const runtime = 'edge'// Image generation
 
-export async function GET(request: NextRequest) {
+export async function GET( request: NextRequest ) {
 
-    const params = request.nextUrl.searchParams
+    const params = request.nextUrl.searchParams;
+    const protocol  = request.nextUrl.protocol;
+    const host  = request.nextUrl.host;
+
     const name: string = params.get("invite") || "Random User";
+    const imageUrl = `${protocol}//${host}/logo.svg`;
 
     return new ImageResponse((
         <div tw="flex flex-col p-8 w-full h-full items-start bg-white">
             <div tw="flex items-center justify-center w-full flex-col">
-                <img src="http://localhost:3000/logo.svg" width={400} height={100} alt="logo" />
+                <img src={imageUrl} width={400} height={100} alt="logo" />
                 <p tw="font-bold text-lg text-[#616061] text-center">Streamline your teamwork with CommLink. Enjoy seamless communication, task management, and document sharing, all in one centralized platform.</p>
             </div>
             <div tw="flex flex-col flex-1 -mt-24 justify-center items-center w-full">

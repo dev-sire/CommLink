@@ -10,11 +10,20 @@ import { JotaiProvider } from "@/components/jotai-provider";
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://commlink-devsire.vercel.app"),
   title: "CommLink: Your Team's Central Hub",
   description: "CommLink is a powerful team communication platform that brings your team together in one place. With features like real-time messaging, file sharing, and task management, CommLink streamlines collaboration and boosts productivity.",
   openGraph: {
     title: "CommLink: Your Team's Central Hub",
     description: "CommLink is a powerful team communication platform that brings your team together in one place. With features like real-time messaging, file sharing, and task management, CommLink streamlines collaboration and boosts productivity",
+    url: "https://commlink-devsire.vercel.app",
+    images: [
+      {
+        url: "https://commlink-devsire.vercel.app/api/og",
+        width: "1200",
+        height: "630",
+      }
+    ]
   }
 };
 
