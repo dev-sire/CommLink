@@ -17,9 +17,6 @@ export const metadata: Metadata = {
     title: "CommLink: Your Team's Central Hub",
     description: "CommLink is a powerful team communication platform that brings your team together in one place. With features like real-time messaging, file sharing, and task management, CommLink streamlines collaboration and boosts productivity",
     url: "https://commlink-devsire.vercel.app",
-    images: [
-      "https://commlink-devsire.vercel.app/api/opengraph-image"
-    ]
   }
 };
 
