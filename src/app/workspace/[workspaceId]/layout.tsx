@@ -26,7 +26,7 @@ const WorkspaceIdLayout = ({ children }: WorkspaceIdLayoutProps) => {
             <div className="flex h-[calc(100vh-40px)]">
                 <Sidebar />
                 <ResizablePanelGroup direction="horizontal" autoSaveId="devsire-id">
-                    <ResizablePanel defaultSize={20} minSize={isMobile ? 0 : 11} className="bg-[#5E2C5F]">
+                    <ResizablePanel defaultSize={20} minSize={isMobile ? 0 : 11} className="bg-[#074799]">
                         <WorkspaceSidebar />
                     </ResizablePanel>
                     <ResizableHandle withHandle />

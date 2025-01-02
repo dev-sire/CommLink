@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { NextRequest } from 'next/server';
 
-export const runtime = 'edge'// Image generation
+//export const runtime = 'edge'// Image generation
 
 export async function GET( request: NextRequest ) {
 
@@ -19,7 +19,7 @@ export async function GET( request: NextRequest ) {
                 <p tw="font-bold text-lg text-[#616061] text-center">Streamline your teamwork with CommLink. Enjoy seamless communication, task management, and document sharing, all in one centralized platform.</p>
             </div>
             <div tw="flex flex-col flex-1 -mt-24 justify-center items-center w-full">
-                <div tw="flex text-[60px] font-bold text-[#481349]">Hey, {name}!</div>
+                <div tw="flex text-[60px] font-bold text-[#074799]">Hey, {name}!</div>
                 <div tw="flex text-xl text-[#616061] uppercase font-bold tracking-tight font-normal">
                     Ready to revolutionize your communication? Join CommLink today.
                 </div>
